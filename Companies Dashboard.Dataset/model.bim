@@ -1,0 +1,461 @@
+{
+  "compatibilityLevel": 1550,
+  "model": {
+    "annotations": [
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"Companies\"]"
+      },
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "1"
+      },
+      {
+        "name": "PBIDesktopVersion",
+        "value": "2.126.1261.0 (24.02)"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"DevMode\"]"
+      }
+    ],
+    "culture": "en-US",
+    "cultures": [
+      {
+        "name": "en-US",
+        "linguisticMetadata": {
+          "content": {
+            "DynamicImprovement": "HighConfidence",
+            "Language": "en-US",
+            "Version": "1.0.0"
+          },
+          "contentType": "json"
+        }
+      }
+    ],
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "sourceQueryCulture": "en-US",
+    "tables": [
+      {
+        "name": "Companies",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Rank",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "67113dbb-ff26-4168-bc1b-e7dbdef1f151",
+            "sourceColumn": "Rank",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "3eac0306-51a1-40d0-a1a7-f6a13035d4ef",
+            "sourceColumn": "Name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Revenue (USD millions)",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"en-US\"}"
+              }
+            ],
+            "dataType": "decimal",
+            "formatString": "\\$#,0.###############;(\\$#,0.###############);\\$#,0.###############",
+            "lineageTag": "855847eb-7901-4517-b049-bb83f5a9dffe",
+            "sourceColumn": "Revenue (USD millions)",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Revenue growth",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "16e83703-fee6-4db1-9630-8869b3c29d8a",
+            "sourceColumn": "Revenue growth",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Employees",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "627a21c3-38fd-4394-ab7b-7230b04ec2ec",
+            "sourceColumn": "Employees",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Headquarters",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "d64ea84a-6d5d-47b1-827f-ae409d1e1908",
+            "sourceColumn": "Headquarters",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "City",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "f78625bb-5927-4807-8157-79bd934071ea",
+            "sourceColumn": "City",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "State",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "eeefeafd-e822-45d9-a667-3fc84754a6d7",
+            "sourceColumn": "State",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Industry",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "a3c864eb-71bd-473f-9b31-34e2a2fcedf0",
+            "sourceColumn": "Industry",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "7085d982-534f-4462-a99d-9a97dd7dc977",
+        "partitions": [
+          {
+            "name": "Companies",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Excel.Workbook(File.Contents(\"C:\\Users\\nigar\\Downloads\\Companies.xlsx\"), null, true),",
+                "    Companies_Sheet = Source{[Item=\"Companies\",Kind=\"Sheet\"]}[Data],",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Companies_Sheet, [PromoteAllScalars=true]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Rank\", Int64.Type}, {\"Name\", type text}, {\"Industry\", type text}, {\"Revenue (USD millions)\", Int64.Type}, {\"Revenue growth\", type number}, {\"Employees\", type any}, {\"Headquarters\", type text}}),",
+                "    #\"Changed Type1\" = Table.TransformColumnTypes(#\"Changed Type\",{{\"Revenue (USD millions)\", Currency.Type}}),",
+                "    #\"Duplicated Column\" = Table.DuplicateColumn(#\"Changed Type1\", \"Headquarters\", \"Headquarters - Copy\"),",
+                "    #\"Split Column by Delimiter\" = Table.SplitColumn(#\"Duplicated Column\", \"Headquarters - Copy\", Splitter.SplitTextByEachDelimiter({\",\"}, QuoteStyle.Csv, false), {\"Headquarters - Copy.1\", \"Headquarters - Copy.2\"}),",
+                "    #\"Changed Type2\" = Table.TransformColumnTypes(#\"Split Column by Delimiter\",{{\"Headquarters - Copy.1\", type text}, {\"Headquarters - Copy.2\", type text}}),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Changed Type2\",{{\"Headquarters - Copy.1\", \"City\"}, {\"Headquarters - Copy.2\", \"State\"}}),",
+                "    #\"Changed Type3\" = Table.TransformColumnTypes(#\"Renamed Columns\",{{\"Revenue growth\", Percentage.Type}}),",
+                "    #\"Duplicated Column1\" = Table.DuplicateColumn(#\"Changed Type3\", \"Industry\", \"Industry - Copy\"),",
+                "    #\"Replaced Value\" = Table.ReplaceValue(#\"Duplicated Column1\",\"Retail\",\"Retail,\",Replacer.ReplaceText,{\"Industry - Copy\"}),",
+                "    #\"Split Column by Delimiter1\" = Table.SplitColumn(#\"Replaced Value\", \"Industry - Copy\", Splitter.SplitTextByEachDelimiter({\",\"}, QuoteStyle.Csv, true), {\"Industry - Copy.1\", \"Industry - Copy.2\"}),",
+                "    #\"Changed Type4\" = Table.TransformColumnTypes(#\"Split Column by Delimiter1\",{{\"Industry - Copy.1\", type text}, {\"Industry - Copy.2\", type text}}),",
+                "    #\"Removed Columns\" = Table.RemoveColumns(#\"Changed Type4\",{\"Industry - Copy.2\"}),",
+                "    #\"Replaced Value1\" = Table.ReplaceValue(#\"Removed Columns\",\"Health\",\"Health,\",Replacer.ReplaceText,{\"Industry - Copy.1\"}),",
+                "    #\"Split Column by Delimiter2\" = Table.SplitColumn(#\"Replaced Value1\", \"Industry - Copy.1\", Splitter.SplitTextByEachDelimiter({\",\"}, QuoteStyle.Csv, true), {\"Industry - Copy.1.1\", \"Industry - Copy.1.2\"}),",
+                "    #\"Changed Type5\" = Table.TransformColumnTypes(#\"Split Column by Delimiter2\",{{\"Industry - Copy.1.1\", type text}, {\"Industry - Copy.1.2\", type text}}),",
+                "    #\"Removed Columns1\" = Table.RemoveColumns(#\"Changed Type5\",{\"Industry - Copy.1.2\"}),",
+                "    #\"Replaced Value2\" = Table.ReplaceValue(#\"Removed Columns1\",\"Financial\",\"Financial,\",Replacer.ReplaceText,{\"Industry - Copy.1.1\"}),",
+                "    #\"Replaced Value3\" = Table.ReplaceValue(#\"Replaced Value2\",\"Food\",\"Food,\",Replacer.ReplaceText,{\"Industry - Copy.1.1\"}),",
+                "    #\"Sorted Rows\" = Table.Sort(#\"Replaced Value3\",{{\"Industry - Copy.1.1\", Order.Ascending}}),",
+                "    #\"Replaced Value4\" = Table.ReplaceValue(#\"Sorted Rows\",\"Petroleum industry\",\"Petroleum industry,\",Replacer.ReplaceText,{\"Industry - Copy.1.1\"}),",
+                "    #\"Replaced Value5\" = Table.ReplaceValue(#\"Replaced Value4\",\"Technology\",\"Technology,\",Replacer.ReplaceText,{\"Industry - Copy.1.1\"}),",
+                "    #\"Replaced Value6\" = Table.ReplaceValue(#\"Replaced Value5\",\"Telecom hardware manufacturing\",\"Technology\",Replacer.ReplaceText,{\"Industry - Copy.1.1\"}),",
+                "    #\"Replaced Value7\" = Table.ReplaceValue(#\"Replaced Value6\",\"Infotech\",\"Technology\",Replacer.ReplaceText,{\"Industry - Copy.1.1\"}),",
+                "    #\"Replaced Value8\" = Table.ReplaceValue(#\"Replaced Value7\",\"Conglomerate\",\"Conglomerate,\",Replacer.ReplaceText,{\"Industry - Copy.1.1\"}),",
+                "    #\"Replaced Value9\" = Table.ReplaceValue(#\"Replaced Value8\",\"Agriculture\",\"Agriculture,\",Replacer.ReplaceText,{\"Industry - Copy.1.1\"}),",
+                "    #\"Replaced Value10\" = Table.ReplaceValue(#\"Replaced Value9\",\"Automotive\",\"Automotive\",Replacer.ReplaceText,{\"Industry - Copy.1.1\"}),",
+                "    #\"Replaced Value11\" = Table.ReplaceValue(#\"Replaced Value10\",\"Automotive\",\"Automotive,\",Replacer.ReplaceText,{\"Industry - Copy.1.1\"}),",
+                "    #\"Replaced Value12\" = Table.ReplaceValue(#\"Replaced Value11\",\"Electronics industry\",\"Technology\",Replacer.ReplaceText,{\"Industry - Copy.1.1\"}),",
+                "    #\"Split Column by Delimiter3\" = Table.SplitColumn(#\"Replaced Value12\", \"Industry - Copy.1.1\", Splitter.SplitTextByEachDelimiter({\",\"}, QuoteStyle.Csv, false), {\"Industry - Copy.1.1.1\", \"Industry - Copy.1.1.2\"}),",
+                "    #\"Changed Type6\" = Table.TransformColumnTypes(#\"Split Column by Delimiter3\",{{\"Industry - Copy.1.1.1\", type text}, {\"Industry - Copy.1.1.2\", type text}}),",
+                "    #\"Sorted Rows1\" = Table.Sort(#\"Changed Type6\",{{\"Industry - Copy.1.1.1\", Order.Ascending}}),",
+                "    #\"Replaced Value13\" = Table.ReplaceValue(#\"Sorted Rows1\",\"Pharmacy wholesale\",\"Pharmaceutical industry\",Replacer.ReplaceText,{\"Industry - Copy.1.1.1\"}),",
+                "    #\"Replaced Value14\" = Table.ReplaceValue(#\"Replaced Value13\",\"Media\",\"Automotive\",Replacer.ReplaceText,{\"Industry - Copy.1.1.1\"}),",
+                "    #\"Sorted Rows2\" = Table.Sort(#\"Replaced Value14\",{{\"Industry - Copy.1.1.1\", Order.Ascending}}),",
+                "    #\"Replaced Value15\" = Table.ReplaceValue(#\"Sorted Rows2\",\"Consumer products manufacturing\",\"Conglomerate\",Replacer.ReplaceText,{\"Industry - Copy.1.1.1\"}),",
+                "    #\"Replaced Value16\" = Table.ReplaceValue(#\"Replaced Value15\",\"Chemical industry\",\"Conglomerate\",Replacer.ReplaceText,{\"Industry - Copy.1.1.1\"}),",
+                "    #\"Replaced Value17\" = Table.ReplaceValue(#\"Replaced Value16\",\"Laboratory instruments\",\"Conglomerate\",Replacer.ReplaceText,{\"Industry - Copy.1.1.1\"}),",
+                "    #\"Replaced Value18\" = Table.ReplaceValue(#\"Replaced Value17\",\"Machinery\",\"Conglomerate\",Replacer.ReplaceText,{\"Industry - Copy.1.1.1\"}),",
+                "    #\"Replaced Value19\" = Table.ReplaceValue(#\"Replaced Value18\",\"Beverage\",\"Food\",Replacer.ReplaceText,{\"Industry - Copy.1.1.1\"}),",
+                "    #\"Replaced Value20\" = Table.ReplaceValue(#\"Replaced Value19\",\"Aerospace and defense\",\"Airline\",Replacer.ReplaceText,{\"Industry - Copy.1.1.1\"}),",
+                "    #\"Sorted Rows3\" = Table.Sort(#\"Replaced Value20\",{{\"Industry - Copy.1.1.1\", Order.Ascending}}),",
+                "    #\"Replaced Value21\" = Table.ReplaceValue(#\"Sorted Rows3\",\"Logistics\",\"Transportation\",Replacer.ReplaceText,{\"Industry - Copy.1.1.1\"}),",
+                "    #\"Sorted Rows4\" = Table.Sort(#\"Replaced Value21\",{{\"Industry - Copy.1.1.1\", Order.Ascending}, {\"Rank\", Order.Ascending}}),",
+                "    #\"Removed Columns2\" = Table.RemoveColumns(#\"Sorted Rows4\",{\"Industry\", \"Industry - Copy.1.1.2\"}),",
+                "    #\"Renamed Columns1\" = Table.RenameColumns(#\"Removed Columns2\",{{\"Industry - Copy.1.1.1\", \"Industry\"}}),",
+                "    #\"Reordered Columns\" = Table.ReorderColumns(#\"Renamed Columns1\",{\"Rank\", \"Name\", \"Industry\", \"Revenue (USD millions)\", \"Revenue growth\", \"Employees\", \"City\", \"State\", \"Headquarters\"})",
+                "in",
+                "    #\"Reordered Columns\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "DateTableTemplate_446ab348-a66f-424d-a77d-b61a6b523a84",
+        "annotations": [
+          {
+            "name": "__PBI_TemplateDateTable",
+            "value": "true"
+          },
+          {
+            "name": "DefaultItem",
+            "value": "DateHierarchy"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "PaddedDateTableDates",
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "isHidden": true,
+            "isNameInferred": true,
+            "lineageTag": "7949385b-a004-45ba-9315-6c24f87d46f6",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Year"
+              }
+            ],
+            "dataCategory": "Years",
+            "dataType": "int64",
+            "expression": "YEAR([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "58ed0ab1-d724-4f8a-b1b0-1f5ea91920db",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "MonthNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "MonthNumber"
+              }
+            ],
+            "dataCategory": "MonthOfYear",
+            "dataType": "int64",
+            "expression": "MONTH([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "2080a809-dfff-4ed0-8b12-30daddbd7305",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Month"
+              }
+            ],
+            "dataCategory": "Months",
+            "dataType": "string",
+            "expression": "FORMAT([Date], \"MMMM\")",
+            "isHidden": true,
+            "lineageTag": "89ead572-6ba3-4562-8a69-91ccc1bf7cbb",
+            "sortByColumn": "MonthNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "QuarterNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "QuarterNumber"
+              }
+            ],
+            "dataCategory": "QuarterOfYear",
+            "dataType": "int64",
+            "expression": "INT(([MonthNo] + 2) / 3)",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "ecba6580-2764-408e-829c-08c0d19d4963",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Quarter",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Quarter"
+              }
+            ],
+            "dataCategory": "Quarters",
+            "dataType": "string",
+            "expression": "\"Qtr \" & [QuarterNo]",
+            "isHidden": true,
+            "lineageTag": "e0c3e16e-2d02-47cb-832f-e67a7a455803",
+            "sortByColumn": "QuarterNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Day",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Day"
+              }
+            ],
+            "dataCategory": "DayOfMonth",
+            "dataType": "int64",
+            "expression": "DAY([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "e2a5eec5-97f0-4803-ad3d-c99d49ab323b",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Date Hierarchy",
+            "annotations": [
+              {
+                "name": "TemplateId",
+                "value": "DateHierarchy"
+              }
+            ],
+            "levels": [
+              {
+                "name": "Year",
+                "column": "Year",
+                "lineageTag": "c95a1399-287a-48ed-be7c-d467b3089eaa",
+                "ordinal": 0
+              },
+              {
+                "name": "Quarter",
+                "column": "Quarter",
+                "lineageTag": "fef9586c-d1bf-4f7c-b544-1a364125b32f",
+                "ordinal": 1
+              },
+              {
+                "name": "Month",
+                "column": "Month",
+                "lineageTag": "71968c08-8a82-4669-b9cf-a88afd13153a",
+                "ordinal": 2
+              },
+              {
+                "name": "Day",
+                "column": "Day",
+                "lineageTag": "a411c1ab-73a8-4601-9919-e6fb42c7f968",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "c4babb6a-9f72-4ae6-955a-0337a79ff2c3"
+          }
+        ],
+        "isHidden": true,
+        "isPrivate": true,
+        "lineageTag": "8a80d08c-ec22-4526-89de-6e20b24a219d",
+        "partitions": [
+          {
+            "name": "DateTableTemplate_446ab348-a66f-424d-a77d-b61a6b523a84",
+            "mode": "import",
+            "source": {
+              "expression": "Calendar(Date(2015,1,1), Date(2015,1,1))",
+              "type": "calculated"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
