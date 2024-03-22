@@ -1,0 +1,170 @@
+table Companies
+	lineageTag: 7085d982-534f-4462-a99d-9a97dd7dc977
+
+	measure Abbreviation = ```
+			
+			LOOKUPVALUE(
+			    MappingTable[Abbreviation],
+			    MappingTable[State], MIN('Companies'[State])
+			)
+			
+			```
+		lineageTag: 949163dc-05e0-4535-acc9-fcfe13eed23b
+
+	column Rank
+		dataType: int64
+		formatString: 0
+		lineageTag: 67113dbb-ff26-4168-bc1b-e7dbdef1f151
+		summarizeBy: sum
+		sourceColumn: Rank
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: 3eac0306-51a1-40d0-a1a7-f6a13035d4ef
+		dataCategory: Place
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Revenue (USD millions)'
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 855847eb-7901-4517-b049-bb83f5a9dffe
+		summarizeBy: sum
+		sourceColumn: Revenue (USD millions)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'Revenue growth'
+		dataType: double
+		lineageTag: 16e83703-fee6-4db1-9630-8869b3c29d8a
+		summarizeBy: sum
+		sourceColumn: Revenue growth
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Employees
+		dataType: int64
+		formatString: 0
+		lineageTag: 627a21c3-38fd-4394-ab7b-7230b04ec2ec
+		summarizeBy: sum
+		sourceColumn: Employees
+
+		annotation SummarizationSetBy = Automatic
+
+	column Headquarters
+		dataType: string
+		lineageTag: d64ea84a-6d5d-47b1-827f-ae409d1e1908
+		summarizeBy: none
+		sourceColumn: Headquarters
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: f78625bb-5927-4807-8157-79bd934071ea
+		dataCategory: City
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column Industry
+		dataType: string
+		lineageTag: a3c864eb-71bd-473f-9b31-34e2a2fcedf0
+		summarizeBy: none
+		sourceColumn: Industry
+
+		annotation SummarizationSetBy = Automatic
+
+	column State
+		dataType: string
+		lineageTag: da51fc73-b73e-460c-9fb9-6ce809959c8c
+		dataCategory: StateOrProvince
+		summarizeBy: none
+		sourceColumn: State
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Companies = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\nigar\Downloads\Companies.xlsx"), null, true),
+				    Companies_Sheet = Source{[Item="Companies",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Companies_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Rank", Int64.Type}, {"Name", type text}, {"Industry", type text}, {"Revenue (USD millions)", Int64.Type}, {"Revenue growth", type number}, {"Employees", type any}, {"Headquarters", type text}}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Changed Type",{{"Revenue (USD millions)", Currency.Type}}),
+				    #"Duplicated Column" = Table.DuplicateColumn(#"Changed Type1", "Headquarters", "Headquarters - Copy"),
+				    #"Split Column by Delimiter" = Table.SplitColumn(#"Duplicated Column", "Headquarters - Copy", Splitter.SplitTextByEachDelimiter({","}, QuoteStyle.Csv, false), {"Headquarters - Copy.1", "Headquarters - Copy.2"}),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Split Column by Delimiter",{{"Headquarters - Copy.1", type text}, {"Headquarters - Copy.2", type text}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type2",{{"Headquarters - Copy.1", "City"}, {"Headquarters - Copy.2", "State"}}),
+				    #"Changed Type3" = Table.TransformColumnTypes(#"Renamed Columns",{{"Revenue growth", Percentage.Type}}),
+				    #"Duplicated Column1" = Table.DuplicateColumn(#"Changed Type3", "Industry", "Industry - Copy"),
+				    #"Replaced Value" = Table.ReplaceValue(#"Duplicated Column1","Retail","Retail,",Replacer.ReplaceText,{"Industry - Copy"}),
+				    #"Split Column by Delimiter1" = Table.SplitColumn(#"Replaced Value", "Industry - Copy", Splitter.SplitTextByEachDelimiter({","}, QuoteStyle.Csv, true), {"Industry - Copy.1", "Industry - Copy.2"}),
+				    #"Changed Type4" = Table.TransformColumnTypes(#"Split Column by Delimiter1",{{"Industry - Copy.1", type text}, {"Industry - Copy.2", type text}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type4",{"Industry - Copy.2"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Removed Columns","Health","Health,",Replacer.ReplaceText,{"Industry - Copy.1"}),
+				    #"Split Column by Delimiter2" = Table.SplitColumn(#"Replaced Value1", "Industry - Copy.1", Splitter.SplitTextByEachDelimiter({","}, QuoteStyle.Csv, true), {"Industry - Copy.1.1", "Industry - Copy.1.2"}),
+				    #"Changed Type5" = Table.TransformColumnTypes(#"Split Column by Delimiter2",{{"Industry - Copy.1.1", type text}, {"Industry - Copy.1.2", type text}}),
+				    #"Removed Columns1" = Table.RemoveColumns(#"Changed Type5",{"Industry - Copy.1.2"}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Removed Columns1","Financial","Financial,",Replacer.ReplaceText,{"Industry - Copy.1.1"}),
+				    #"Replaced Value3" = Table.ReplaceValue(#"Replaced Value2","Food","Food,",Replacer.ReplaceText,{"Industry - Copy.1.1"}),
+				    #"Sorted Rows" = Table.Sort(#"Replaced Value3",{{"Industry - Copy.1.1", Order.Ascending}}),
+				    #"Replaced Value4" = Table.ReplaceValue(#"Sorted Rows","Petroleum industry","Petroleum industry,",Replacer.ReplaceText,{"Industry - Copy.1.1"}),
+				    #"Replaced Value5" = Table.ReplaceValue(#"Replaced Value4","Technology","Technology,",Replacer.ReplaceText,{"Industry - Copy.1.1"}),
+				    #"Replaced Value6" = Table.ReplaceValue(#"Replaced Value5","Telecom hardware manufacturing","Technology",Replacer.ReplaceText,{"Industry - Copy.1.1"}),
+				    #"Replaced Value7" = Table.ReplaceValue(#"Replaced Value6","Infotech","Technology",Replacer.ReplaceText,{"Industry - Copy.1.1"}),
+				    #"Replaced Value8" = Table.ReplaceValue(#"Replaced Value7","Conglomerate","Conglomerate,",Replacer.ReplaceText,{"Industry - Copy.1.1"}),
+				    #"Replaced Value9" = Table.ReplaceValue(#"Replaced Value8","Agriculture","Agriculture,",Replacer.ReplaceText,{"Industry - Copy.1.1"}),
+				    #"Replaced Value10" = Table.ReplaceValue(#"Replaced Value9","Automotive","Automotive",Replacer.ReplaceText,{"Industry - Copy.1.1"}),
+				    #"Replaced Value11" = Table.ReplaceValue(#"Replaced Value10","Automotive","Automotive,",Replacer.ReplaceText,{"Industry - Copy.1.1"}),
+				    #"Replaced Value12" = Table.ReplaceValue(#"Replaced Value11","Electronics industry","Technology",Replacer.ReplaceText,{"Industry - Copy.1.1"}),
+				    #"Split Column by Delimiter3" = Table.SplitColumn(#"Replaced Value12", "Industry - Copy.1.1", Splitter.SplitTextByEachDelimiter({","}, QuoteStyle.Csv, false), {"Industry - Copy.1.1.1", "Industry - Copy.1.1.2"}),
+				    #"Changed Type6" = Table.TransformColumnTypes(#"Split Column by Delimiter3",{{"Industry - Copy.1.1.1", type text}, {"Industry - Copy.1.1.2", type text}}),
+				    #"Sorted Rows1" = Table.Sort(#"Changed Type6",{{"Industry - Copy.1.1.1", Order.Ascending}}),
+				    #"Replaced Value13" = Table.ReplaceValue(#"Sorted Rows1","Pharmacy wholesale","Pharmaceutical industry",Replacer.ReplaceText,{"Industry - Copy.1.1.1"}),
+				    #"Replaced Value14" = Table.ReplaceValue(#"Replaced Value13","Media","Automotive",Replacer.ReplaceText,{"Industry - Copy.1.1.1"}),
+				    #"Sorted Rows2" = Table.Sort(#"Replaced Value14",{{"Industry - Copy.1.1.1", Order.Ascending}}),
+				    #"Replaced Value15" = Table.ReplaceValue(#"Sorted Rows2","Consumer products manufacturing","Conglomerate",Replacer.ReplaceText,{"Industry - Copy.1.1.1"}),
+				    #"Replaced Value16" = Table.ReplaceValue(#"Replaced Value15","Chemical industry","Conglomerate",Replacer.ReplaceText,{"Industry - Copy.1.1.1"}),
+				    #"Replaced Value17" = Table.ReplaceValue(#"Replaced Value16","Laboratory instruments","Conglomerate",Replacer.ReplaceText,{"Industry - Copy.1.1.1"}),
+				    #"Replaced Value18" = Table.ReplaceValue(#"Replaced Value17","Machinery","Conglomerate",Replacer.ReplaceText,{"Industry - Copy.1.1.1"}),
+				    #"Replaced Value19" = Table.ReplaceValue(#"Replaced Value18","Beverage","Food",Replacer.ReplaceText,{"Industry - Copy.1.1.1"}),
+				    #"Replaced Value20" = Table.ReplaceValue(#"Replaced Value19","Aerospace and defense","Airline",Replacer.ReplaceText,{"Industry - Copy.1.1.1"}),
+				    #"Sorted Rows3" = Table.Sort(#"Replaced Value20",{{"Industry - Copy.1.1.1", Order.Ascending}}),
+				    #"Replaced Value21" = Table.ReplaceValue(#"Sorted Rows3","Logistics","Transportation",Replacer.ReplaceText,{"Industry - Copy.1.1.1"}),
+				    #"Sorted Rows4" = Table.Sort(#"Replaced Value21",{{"Industry - Copy.1.1.1", Order.Ascending}, {"Rank", Order.Ascending}}),
+				    #"Removed Columns2" = Table.RemoveColumns(#"Sorted Rows4",{"Industry", "Industry - Copy.1.1.2"}),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Removed Columns2",{{"Industry - Copy.1.1.1", "Industry"}}),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Renamed Columns1",{"Rank", "Name", "Industry", "Revenue (USD millions)", "Revenue growth", "Employees", "City", "State", "Headquarters"}),
+				    #"Sorted Rows5" = Table.Sort(#"Reordered Columns",{{"State", Order.Ascending}}),
+				    #"Replaced Value22" = Table.ReplaceValue(#"Sorted Rows5"," Cook County, Illinois","Illinois",Replacer.ReplaceText,{"State"}),
+				    #"Replaced Value23" = Table.ReplaceValue(#"Replaced Value22","Illinois"," Illinois",Replacer.ReplaceText,{"State"}),
+				    #"Sorted Rows6" = Table.Sort(#"Replaced Value23",{{"State", Order.Ascending}}),
+				    #"Replaced Value24" = Table.ReplaceValue(#"Sorted Rows6","  Illinois"," Illinois",Replacer.ReplaceText,{"State"}),
+				    #"Split Column by Delimiter4" = Table.SplitColumn(#"Replaced Value24", "State", Splitter.SplitTextByEachDelimiter({" "}, QuoteStyle.Csv, false), {"State.1", "State.2"}),
+				    #"Changed Type7" = Table.TransformColumnTypes(#"Split Column by Delimiter4",{{"State.1", type text}, {"State.2", type text}}),
+				    #"Removed Columns3" = Table.RemoveColumns(#"Changed Type7",{"State.1"}),
+				    #"Renamed Columns2" = Table.RenameColumns(#"Removed Columns3",{{"State.2", "State"}}),
+				    #"Sorted Rows7" = Table.Sort(#"Renamed Columns2",{{"Employees", Order.Descending}}),
+				    #"Replaced Value25" = Table.ReplaceValue(#"Sorted Rows7","4,000[2]",4000,Replacer.ReplaceValue,{"Employees"}),
+				    #"Changed Type8" = Table.TransformColumnTypes(#"Replaced Value25",{{"Employees", Int64.Type}}),
+				    #"Sorted Rows8" = Table.Sort(#"Changed Type8",{{"Rank", Order.Ascending}}),
+				    #"Replaced Value26" = Table.ReplaceValue(#"Sorted Rows8"," industry","",Replacer.ReplaceText,{"Industry"}),
+				    #"Replaced Value27" = Table.ReplaceValue(#"Replaced Value26","Telecommunications","Telecommunication",Replacer.ReplaceText,{"Industry"})
+				in
+				    #"Replaced Value27"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

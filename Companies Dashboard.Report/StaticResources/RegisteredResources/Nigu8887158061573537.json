@@ -1,0 +1,26 @@
+{
+  "name": "Nigu",
+  "dataColors": [
+    "#10002B",
+    "#240046",
+    "#3C096C",
+    "#5A189A",
+    "#7B2CBF",
+    "#9D4EDD",
+    "#C77DFF",
+    "#E0AAFF"
+  ],
+  "foreground": "#121212",
+  "background": "#FFFFFF",
+  "foregroundNeutralSecondary": "#6C6966",
+  "backgroundLight": "#E5E0DA",
+  "foregroundNeutralTertiary": "#ABA7A2",
+  "backgroundNeutral": "#C6C2BE",
+  "tableAccent": "#4E9466",
+  "maximum": "#10002B",
+  "center": "#7B2CBF",
+  "minimum": "#E0AAFF",
+  "bad": "#10002B",
+  "neutral": "#7B2CBF",
+  "good": "#E0AAFF"
+}

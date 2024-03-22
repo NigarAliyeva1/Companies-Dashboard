@@ -19,7 +19,20 @@
             "height": 296,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 459,
+            "y": 72
+          },
+          "nodeIndex": "MappingTable",
+          "nodeLineageTag": "71752e25-4388-43d3-b9b4-f2e360b273d8",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 2
         }
       ],
       "name": "All tables",

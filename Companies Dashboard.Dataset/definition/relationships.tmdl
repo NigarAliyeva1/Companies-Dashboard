@@ -1,0 +1,5 @@
+relationship 3cc3ab85-4e7b-4da0-9d74-8acc9270ea86
+	crossFilteringBehavior: bothDirections
+	fromColumn: Companies.State
+	toColumn: MappingTable.State
+

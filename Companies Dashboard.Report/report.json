@@ -1,6 +1,14 @@
 {
-  "config": "{\"version\":\"5.51\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU02\",\"version\":\"5.51\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"slowDataSourceSettings\":{\"isCrossHighlightingDisabled\":false,\"isSlicerSelectionsButtonEnabled\":false,\"isFilterSelectionsButtonEnabled\":false,\"isFieldWellButtonEnabled\":false,\"isApplyAllButtonEnabled\":false},\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "config": "{\"version\":\"5.51\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU02\",\"version\":\"5.51\",\"type\":2},\"customTheme\":{\"name\":\"Nigu8887158061573537.json\",\"version\":\"5.51\",\"type\":1}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"slowDataSourceSettings\":{\"isCrossHighlightingDisabled\":false,\"isSlicerSelectionsButtonEnabled\":false,\"isFilterSelectionsButtonEnabled\":false,\"isFieldWellButtonEnabled\":false,\"isApplyAllButtonEnabled\":false},\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}],\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}",
   "layoutOptimization": 0,
+  "pods": [
+    {
+      "boundSection": "ReportSection",
+      "config": "{}",
+      "name": "Pod",
+      "referenceScope": 1
+    }
+  ],
   "resourcePackages": [
     {
       "resourcePackage": {
@@ -10,16 +18,35 @@
             "name": "CY24SU02",
             "path": "BaseThemes/CY24SU02.json",
             "type": 202
+          },
+          {
+            "name": "usa.states.topo",
+            "path": "Shapemaps/usa.states.topo.json",
+            "type": 200
           }
         ],
         "name": "SharedResources",
         "type": 2
       }
+    },
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "Nigu8887158061573537.json",
+            "path": "Nigu8887158061573537.json",
+            "type": 201
+          }
+        ],
+        "name": "RegisteredResources",
+        "type": 1
+      }
     }
   ],
   "sections": [
     {
-      "config": "{}",
+      "config": "{\"objects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":9,\"Percent\":0.6}}}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}]}}",
       "displayName": "Page 1",
       "displayOption": 1,
       "filters": "[]",
@@ -27,16 +54,101 @@
       "name": "ReportSection",
       "visualContainers": [
         {
-          "config": "{\"name\":\"5dfd6469146835565238\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":0,\"width\":802.7471146920384,\"height\":498.1148762960854,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"filledMap\",\"projections\":{\"Category\":[{\"queryRef\":\"Companies.State\",\"active\":true}],\"Series\":[{\"queryRef\":\"Companies.City\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Companies\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"State\"},\"Name\":\"Companies.State\",\"NativeReferenceName\":\"State\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"City\"},\"Name\":\"Companies.City\",\"NativeReferenceName\":\"City\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"mapStyles\":[{\"properties\":{\"mapTheme\":{\"expr\":{\"Literal\":{\"Value\":\"'road'\"}}}}}],\"mapControls\":[{\"properties\":{\"autoZoom\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"showZoomButtons\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"showLassoButton\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "config": "{\"name\":\"28e9466a5eac40c1307f\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.64824120603015,\"y\":16.884422110552762,\"z\":2000,\"width\":88.04020100502512,\"height\":688.643216080402,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangle'\"}}}}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}}}],\"fill\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}],\"outline\":[{\"properties\":{\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}},\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"30D\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}],\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
           "filters": "[]",
-          "height": 498.11,
-          "width": 802.75,
-          "x": 0.00,
-          "y": 0.00,
+          "height": 688.64,
+          "width": 88.04,
+          "x": 9.65,
+          "y": 16.88,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"4868d94f146af28f823d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":19.2964824120603,\"y\":625.929648241206,\"z\":3000,\"width\":66.33165829145729,\"height\":66.33165829145729,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"actionButton\",\"drillFilterOtherVisuals\":true,\"objects\":{\"icon\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'back'\"}}}},\"selector\":{\"id\":\"default\"}}]},\"vcObjects\":{\"visualLink\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'Back'\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 66.33,
+          "width": 66.33,
+          "x": 19.30,
+          "y": 625.93,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"5dfd6469146835565238\",\"layouts\":[{\"id\":0,\"position\":{\"x\":812.8643216080402,\"y\":20.50251256281407,\"z\":1000,\"width\":449.84924623115575,\"height\":283.41708542713565,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"shapeMap\",\"projections\":{\"Category\":[{\"queryRef\":\"MappingTable.Abbreviation\"}],\"Value\":[{\"queryRef\":\"CountNonNull(Companies.City)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"MappingTable\",\"Type\":0},{\"Name\":\"c\",\"Entity\":\"Companies\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Abbreviation\"},\"Name\":\"MappingTable.Abbreviation\",\"NativeReferenceName\":\"Abbreviation\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"City\"}},\"Function\":5},\"Name\":\"CountNonNull(Companies.City)\",\"NativeReferenceName\":\"Count of City\"}]},\"queryOptions\":{\"keepProjectionOrder\":true,\"allowOverlappingPointsSample\":true},\"drillFilterOtherVisuals\":true,\"objects\":{\"legend\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"dataPoint\":[{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":3,\"Percent\":0}}}}},\"showAllDataPoints\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"fillRule\":{\"linearGradient2\":{\"min\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#9D4EDD'\"}}}},\"max\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#9D4EDD'\"}}}},\"nullColoringStrategy\":{\"strategy\":{\"expr\":{\"Literal\":{\"Value\":\"'asZero'\"}}}}}}}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#6021CF'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Companies\"}},\"Property\":\"State\"}},\"Right\":{\"Literal\":{\"Value\":\"'D.C.'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":2,\"Percent\":-0.5}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Companies\"}},\"Property\":\"State\"}},\"Right\":{\"Literal\":{\"Value\":\"'Arkansas'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#8971B3'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Companies\"}},\"Property\":\"State\"}},\"Right\":{\"Literal\":{\"Value\":\"'California'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":8,\"Percent\":0.6}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Companies\"}},\"Property\":\"State\"}},\"Right\":{\"Literal\":{\"Value\":\"'Massachusetts'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":7,\"Percent\":0.2}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Companies\"}},\"Property\":\"State\"}},\"Right\":{\"Literal\":{\"Value\":\"'Michigan'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":9,\"Percent\":0.2}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Companies\"}},\"Property\":\"State\"}},\"Right\":{\"Literal\":{\"Value\":\"'Minnesota'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#6F40C1'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Companies\"}},\"Property\":\"State\"}},\"Right\":{\"Literal\":{\"Value\":\"'Virginia'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#8B7AD6'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Companies\"}},\"Property\":\"State\"}},\"Right\":{\"Literal\":{\"Value\":\"'Texas'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#815AC8'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Companies\"}},\"Property\":\"State\"}},\"Right\":{\"Literal\":{\"Value\":\"'Tennessee'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#7B29B5'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Companies\"}},\"Property\":\"State\"}},\"Right\":{\"Literal\":{\"Value\":\"'Rhode Island'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#8B4CF8'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Companies\"}},\"Property\":\"State\"}},\"Right\":{\"Literal\":{\"Value\":\"'Pennsylvania'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#DF80FF'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Companies\"}},\"Property\":\"State\"}},\"Right\":{\"Literal\":{\"Value\":\"'Oregon'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#4D2593'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Companies\"}},\"Property\":\"State\"}},\"Right\":{\"Literal\":{\"Value\":\"'Ohio'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#B298E0'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Companies\"}},\"Property\":\"State\"}},\"Right\":{\"Literal\":{\"Value\":\"'New York'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#6A408E'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Companies\"}},\"Property\":\"State\"}},\"Right\":{\"Literal\":{\"Value\":\"'Nebraska'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#B638F1'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Companies\"}},\"Property\":\"State\"}},\"Right\":{\"Literal\":{\"Value\":\"'Missouri'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#762FEF'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Companies\"}},\"Property\":\"State\"}},\"Right\":{\"Literal\":{\"Value\":\"'Connecticut'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#6211AD'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Companies\"}},\"Property\":\"State\"}},\"Right\":{\"Literal\":{\"Value\":\"'Florida'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#643D89'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Companies\"}},\"Property\":\"State\"}},\"Right\":{\"Literal\":{\"Value\":\"'Georgia'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#7B3BB6'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Companies\"}},\"Property\":\"State\"}},\"Right\":{\"Literal\":{\"Value\":\"'Washington'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#521459'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Companies\"}},\"Property\":\"State\"}},\"Right\":{\"Literal\":{\"Value\":\"'New Jersey'\"}}}}}]}}],\"shape\":[{\"properties\":{\"map\":{\"geoJson\":{\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'shared'\"}}},\"name\":{\"expr\":{\"Literal\":{\"Value\":\"'usa.states.topo'\"}}},\"content\":{\"expr\":{\"ResourcePackageItem\":{\"PackageName\":\"ShapeMap\",\"PackageType\":2,\"ItemName\":\"usa.states.topo\"}}}}},\"projectionEnum\":{\"expr\":{\"Literal\":{\"Value\":\"'albersUsa'\"}}}}}],\"defaultColors\":[{\"properties\":{\"defaultShow\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"defaultColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}},\"borderColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":2,\"Percent\":-0.5}}}}},\"borderThickness\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"30D\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}],\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"general\":[{\"properties\":{\"keepLayerOrder\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"lockAspect\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"visualTooltip\":[{\"properties\":{\"background\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"null\"}}}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}},\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'Canvas'\"}}},\"section\":{\"expr\":{\"Literal\":{\"Value\":\"'ReportSection0bece59c679fe688e2b4'\"}}}}}]}}}",
+          "filters": "[{\"expression\":{\"Arithmetic\":{\"Left\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"MappingTable\"}},\"Property\":\"State\"}},\"Function\":2}},\"Right\":{\"ScopedEval\":{\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"MappingTable\"}},\"Property\":\"State\"}},\"Function\":2}},\"Scope\":[]}},\"Operator\":3}},\"type\":\"Advanced\",\"howCreated\":1,\"isHiddenInViewMode\":false}]",
+          "height": 283.42,
+          "width": 449.85,
+          "x": 812.86,
+          "y": 20.50,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"b2d215dbeac8700a6f13\",\"layouts\":[{\"id\":0,\"position\":{\"x\":580.1739130434783,\"y\":492.5217391304348,\"z\":6000,\"width\":667.8260869565217,\"height\":228.17391304347825,\"tabOrder\":2003}}],\"singleVisual\":{\"visualType\":\"areaChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Companies.State\",\"active\":true}],\"Y2\":[{\"queryRef\":\"Sum(Companies.Employees)\"}],\"Y\":[{\"queryRef\":\"Sum(Companies.Revenue growth)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Companies\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"State\"},\"Name\":\"Companies.State\",\"NativeReferenceName\":\"State\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Employees\"}},\"Function\":4},\"Name\":\"Sum(Companies.Employees)\",\"NativeReferenceName\":\"Max of Employees\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Revenue growth\"}},\"Function\":4},\"Name\":\"Sum(Companies.Revenue growth)\",\"NativeReferenceName\":\"Max of Revenue growth\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Revenue growth\"}},\"Function\":4}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"categoryAxis\":[{\"properties\":{\"labelColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}},\"preferredCategoryWidth\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"maxMarginFactor\":{\"expr\":{\"Literal\":{\"Value\":\"40L\"}}}}}],\"lineStyles\":[{\"properties\":{\"lineStyle\":{\"expr\":{\"Literal\":{\"Value\":\"'solid'\"}}},\"strokeLineJoin\":{\"expr\":{\"Literal\":{\"Value\":\"'round'\"}}},\"lineChartType\":{\"expr\":{\"Literal\":{\"Value\":\"'smooth'\"}}},\"showMarker\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"markerShape\":{\"expr\":{\"Literal\":{\"Value\":\"'circle'\"}}},\"markerColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":5,\"Percent\":0}}}}}}}],\"dataPoint\":[{\"properties\":{\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"80D\"}}},\"showAllDataPoints\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"seriesLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"legend\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"30D\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}],\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 228.17,
+          "width": 667.83,
+          "x": 580.17,
+          "y": 492.52,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"bc6f6d511f27242c07bd\",\"layouts\":[{\"id\":0,\"position\":{\"x\":580.1739130434783,\"y\":331.1304347826087,\"z\":5000,\"width\":667.8260869565217,\"height\":161.3913043478261,\"tabOrder\":2002}}],\"singleVisual\":{\"visualType\":\"areaChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Companies.State\",\"active\":true}],\"Y2\":[{\"queryRef\":\"Sum(Companies.Employees)\"}],\"Y\":[{\"queryRef\":\"Sum(Companies.Revenue growth)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Companies\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"State\"},\"Name\":\"Companies.State\",\"NativeReferenceName\":\"State\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Employees\"}},\"Function\":3},\"Name\":\"Sum(Companies.Employees)\",\"NativeReferenceName\":\"Min of Employees\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Revenue growth\"}},\"Function\":3},\"Name\":\"Sum(Companies.Revenue growth)\",\"NativeReferenceName\":\"Min of Revenue growth\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Revenue growth\"}},\"Function\":3}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"categoryAxis\":[{\"properties\":{\"labelColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}},\"preferredCategoryWidth\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"lineStyles\":[{\"properties\":{\"lineStyle\":{\"expr\":{\"Literal\":{\"Value\":\"'solid'\"}}},\"strokeLineJoin\":{\"expr\":{\"Literal\":{\"Value\":\"'round'\"}}},\"lineChartType\":{\"expr\":{\"Literal\":{\"Value\":\"'smooth'\"}}},\"showMarker\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"markerShape\":{\"expr\":{\"Literal\":{\"Value\":\"'circle'\"}}},\"markerColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":5,\"Percent\":0}}}}}}}],\"dataPoint\":[{\"properties\":{\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"80D\"}}},\"showAllDataPoints\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"seriesLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"valueAxis\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"legend\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"30D\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}],\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 161.39,
+          "width": 667.83,
+          "x": 580.17,
+          "y": 331.13,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"cc61ab48b527ccb74798\",\"layouts\":[{\"id\":0,\"position\":{\"x\":108.54271356783919,\"y\":16.884422110552762,\"z\":4000,\"width\":449.84924623115575,\"height\":125.42713567839195,\"tabOrder\":2001}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Companies \",\"textStyle\":{\"fontWeight\":\"bold\",\"fontFamily\":\"Segoe UI\",\"fontSize\":\"36pt\"}}]},{\"textRuns\":[{\"value\":\"Dashboard\",\"textStyle\":{\"fontSize\":\"28pt\"}}]}]}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#f3ddff'\"}}}}}}}]}}}",
+          "filters": "[]",
+          "height": 125.43,
+          "width": 449.85,
+          "x": 108.54,
+          "y": 16.88,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"d1d745ffaac6ace9b465\",\"layouts\":[{\"id\":0,\"position\":{\"x\":557.9130434782609,\"y\":317.2173913043478,\"z\":0,\"width\":705.3913043478261,\"height\":403.4782608695652,\"tabOrder\":2004}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangle'\"}}}}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}}}],\"fill\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}],\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"30D\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 403.48,
+          "width": 705.39,
+          "x": 557.91,
+          "y": 317.22,
           "z": 0.00
         }
       ],
       "width": 1280.00
+    },
+    {
+      "config": "{\"objects\":{\"displayArea\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Middle'\"}}}}}],\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":9,\"Percent\":0.6}}}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}],\"outspace\":[{\"properties\":{\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"100D\"}}}}}],\"outspacePane\":[{\"properties\":{\"titleSize\":{\"expr\":{\"Literal\":{\"Value\":\"11L\"}}}}}],\"filterCard\":[{\"properties\":{\"border\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}},\"selector\":{\"id\":\"Available\"}}]},\"visibility\":1,\"type\":1}",
+      "displayName": "State_city",
+      "displayOption": 3,
+      "filters": "[]",
+      "height": 300.00,
+      "name": "ReportSection0bece59c679fe688e2b4",
+      "ordinal": 1,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"872971ed598de78ab4d2\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":0,\"width\":280,\"height\":57,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Min(Companies.State)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Companies\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"State\"}},\"Function\":3},\"Name\":\"Min(Companies.State)\",\"NativeReferenceName\":\"State\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"30D\"}}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 57.00,
+          "width": 280.00,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"d848fb65c26a9289b4f4\",\"layouts\":[{\"id\":0,\"position\":{\"x\":12,\"y\":57,\"z\":1000,\"width\":277,\"height\":230,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Companies.Name\"},{\"queryRef\":\"Companies.City\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Companies\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Name\"},\"Name\":\"Companies.Name\",\"NativeReferenceName\":\"Name\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"City\"},\"Name\":\"Companies.City\",\"NativeReferenceName\":\"City\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Name\"}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"grid\":[{\"properties\":{\"outlineStyle\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}],\"values\":[{\"properties\":{\"wordWrap\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}],\"columnHeaders\":[{\"properties\":{\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Left'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"9D\"}}}}}],\"columnWidth\":[{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"96D\"}}}},\"selector\":{\"metadata\":\"Min(Companies.City)\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"147D\"}}}},\"selector\":{\"metadata\":\"Companies.Name\"}}]},\"vcObjects\":{\"stylePreset\":[{\"properties\":{\"name\":{\"expr\":{\"Literal\":{\"Value\":\"'Minimal'\"}}}}}],\"dropShadow\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"position\":{\"expr\":{\"Literal\":{\"Value\":\"'Outer'\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":3,\"Percent\":0.2}}}}}}}],\"background\":[{\"properties\":{\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 230.00,
+          "width": 277.00,
+          "x": 12.00,
+          "y": 57.00,
+          "z": 1000.00
+        }
+      ],
+      "width": 300.00
     }
-  ]
+  ],
+  "theme": "Nigu8887158061573537.json"
 }

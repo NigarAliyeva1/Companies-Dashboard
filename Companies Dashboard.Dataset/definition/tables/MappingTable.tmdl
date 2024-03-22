@@ -1,0 +1,67 @@
+table MappingTable
+	lineageTag: 71752e25-4388-43d3-b9b4-f2e360b273d8
+
+	column State
+		dataType: string
+		lineageTag: d3c2baef-9024-4c7f-8941-cf88e0503cc6
+		dataCategory: StateOrProvince
+		summarizeBy: none
+		isNameInferred
+		isDataTypeInferred
+		sourceColumn: [State]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Abbreviation
+		dataType: string
+		lineageTag: 57235dd3-9267-4e99-bedb-2515a57c2cf2
+		dataCategory: StateOrProvince
+		summarizeBy: none
+		isNameInferred
+		isDataTypeInferred
+		sourceColumn: [Abbreviation]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MappingTable = calculated
+		mode: import
+		source = ```
+				
+				DATATABLE (
+				    "State", STRING,
+				    "Abbreviation", STRING,
+				    {
+				        {"Arkansas", "AR"},
+				        {"California", "CA"},
+				        {"Connecticut", "CT"},
+				        {"Illinois", "IL"},
+				        {"D.C.", "DC"},
+				        {"Florida", "FL"},
+				        {"Georgia", "GA"},
+				        {"Idaho", "ID"},
+				        {"Indiana", "IN"},
+				        {"Kentucky", "KY"},
+				        {"Maryland", "MD"},
+				        {"Massachusetts", "MA"},
+				        {"Michigan", "MI"},
+				        {"Minnesota", "MN"},
+				        {"Missouri", "MO"},
+				        {"Nebraska", "NE"},
+				        {"New Jersey", "NJ"},
+				        {"New York", "NY"},
+				        {"North Carolina", "NC"},
+				        {"Ohio", "OH"},
+				        {"Oregon", "OR"},
+				        {"Pennsylvania", "PA"},
+				        {"Rhode Island", "RI"},
+				        {"Tennessee", "TN"},
+				        {"Texas", "TX"},
+				        {"Virginia", "VA"},
+				        {"Washington", "WA"}
+				    }
+				)
+				
+				```
+
+	annotation PBI_Id = d9ecaa2d3bbe47348da758d4885de707
+
