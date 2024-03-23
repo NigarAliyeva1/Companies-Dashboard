@@ -11,6 +11,14 @@ table Companies
 			```
 		lineageTag: 949163dc-05e0-4535-acc9-fcfe13eed23b
 
+	measure 0 = 0
+		formatString: 0
+		lineageTag: 5d303801-ac56-43fc-bbd0-2b4c78aa20ef
+
+	measure 10 = 100
+		formatString: 0
+		lineageTag: 342c2f54-665b-4b9e-9fec-cb0ebcbf9ecf
+
 	column Rank
 		dataType: int64
 		formatString: 0
@@ -42,13 +50,12 @@ table Companies
 
 	column 'Revenue growth'
 		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 16e83703-fee6-4db1-9630-8869b3c29d8a
 		summarizeBy: sum
 		sourceColumn: Revenue growth
 
 		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column Employees
 		dataType: int64
