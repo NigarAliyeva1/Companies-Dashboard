@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Companies Dashboard"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "cba6856d-f472-4a63-a534-e173743e6dda"
+  }
+}
