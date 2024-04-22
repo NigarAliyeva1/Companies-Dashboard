@@ -39,3 +39,4 @@ This repository contains Python code for scraping data from a real website and a
 - `scrape_and_analyze.py`: Python script for scraping data and performing analysis.
 - `Companies.csv`: CSV file containing the scraped data.
 - `Companies Dashboard.pbix`: Power BI dashboard for visualizing the data.
+![Screenshot 2024-04-22 203847](https://github.com/NigarAliyeva1/Companies-Dashboard/assets/112957859/ad49b8f3-cbef-48d1-acc7-0daf91dc4581)
